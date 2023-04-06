@@ -1,0 +1,25 @@
+Average quality for 1 shuffles: 0.379
+Average quality for 2 shuffles: 0.402
+Average quality for 3 shuffles: 0.425
+Average quality for 4 shuffles: 0.433
+Average quality for 5 shuffles: 0.423
+Average quality for 6 shuffles: 0.437
+Average quality for 7 shuffles: 0.439
+Average quality for 8 shuffles: 0.436
+Average quality for 9 shuffles: 0.433
+Average quality for 10 shuffles: 0.437
+Average quality for 11 shuffles: 0.443
+Average quality for 12 shuffles: 0.428
+Average quality for 13 shuffles: 0.446
+Average quality for 14 shuffles: 0.440
+Average quality for 15 shuffles: 0.437
+
+From my testing, I found that doing any more that 7 shuffles made a negligable 
+difference. It's interesting to note that a 'perfect' shuffle score would be 0.5, 
+however I was unable to achieve that as there must be some bias somewhere in my 
+code that I cannot find. To address this I attempted to play around with the 
+randomness seed, changing the seed every nanosecond and pausing the program for 
+a milisecond between shuffles to ensure that no two shuffles would use the same 
+seed. This slightly improved my scores, but I was still unable to reach anything 
+above 0.46, but this score still indicates a highly random shuffle, but not a 
+perfect one.
