@@ -11,3 +11,9 @@
 2 - Shuffle/tempCodeRunnerFile.c
 2 - Shuffle/riffle.dSYM/Contents/Info.plist
 2 - Shuffle/riffle.dSYM/Contents/Resources/DWARF/riffle
+.vscode/c_cpp_properties.json
+.gitignore
+.DS_Store
+3 - byn/tempCodeRunnerFile.c
+.gitignore
+3 - byn/shuffle

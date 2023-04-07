@@ -1,17 +1,6 @@
 #ifndef BEGGAR_H
 #define BEGGAR_H
-
-// Constants for penalty card values
-#define ACE 14
-#define KING 13
-#define QUEEN 12
-#define JACK 11
-
-// Constants for the number of cards to pay as penalty
-#define ACE_PENALTY 4
-#define KING_PENALTY 3
-#define QUEEN_PENALTY 2
-#define JACK_PENALTY 1
+#include "shuffle.c"
 
 // Card struct
 typedef struct {
@@ -20,33 +9,42 @@ typedef struct {
     struct card *prev;
 } card_t;
 
-// Player struct
+/*// Player struct
 typedef struct {
     int id;
     card *cards;
     int num_cards;
-} player_t;
+} player_t;*/
 
-
+/**
+ * @brief A struct to hold details of shortest, average and longest 
+ * games with Nplayers.
+ * 
+ */
+typedef struct {
+    int shortest;
+    int longest;
+    float average;
+} stats_t;
 
 /**
  * @brief plays a single beggar your neighbour game with 'Nplayers' players
  * using a provided 'deck'. If 'talkative' is not zero, the details of the game 
  * will be printed. The number of turns to complete the game is returned.
  * 
- * @param Nplayers the number of players.
- * @param deck the deck to use.
- * @param talkative wheter to print the game details or not.
- * @return int the number of turns it takes to complete the game.
+ * @param Nplayers The number of players.
+ * @param deck The deck to use.
+ * @param talkative Whether to print the game details or not.
+ * @return int The number of turns it takes to complete the game.
  */
 int beggar(int Nplayers, int *deck, int talkative);
 
 /**
  * @brief returns 1 if one player has all the cards and the others have none.
  * 
- * @param players the player's decks.
- * @param num_players the number of players.
- * @return int 0 if the game is not finished, 1 if the game is.
+ * @param players The player's decks.
+ * @param num_players The number of players.
+ * @return int 0 If the game is not finished, 1 if the game is.
  */
 int finished(int **players, int num_players);
 
@@ -56,14 +54,20 @@ int finished(int **players, int num_players);
  * main pile after a turn and returns a 'reward' for the previous player if they
  * don't lay a penalty card in response to the top card in the main pile.
  * 
- * @param player current player's pile.
- * @param pile main pile.
- * @param pile_size size of the pile.
- * @param reward_size size of the reward.
- * @return int* the reward.
+ * @param player Current player's pile.
+ * @param pile Main pile.
+ * @return int* The reward cards.
  */
-int *take_turn(int *player, int **pile, int *pile_size, int *reward_size);
+int take_turn(int *player, int *pile);
 
-void shuffle(int *array, size_t n);
+/**
+ * @brief uses 'beggar' function to calculate the shortest, average and longest 
+ * games with Nplayers. Returns a 'Stats' struct with these details.
+ * 
+ * @param Nplayers Number of players per game.
+ * @param games Number of games to play.
+ * @return Stats 
+ */
+stats_t statistics(int Nplayers, int games);
 
 #endif
