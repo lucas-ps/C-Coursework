@@ -28,4 +28,4 @@ int main(int argc, char **argv)
 
 }
 
-// gcc -I/opt/homebrew/include shuffle.c -o shuffle -L/opt/homebrew/lib -lgsl -lgslcblas -lm
+// gcc demo_shuffle.c shuffle.c -I/opt/homebrew/include -o demo_shuffle -L/opt/homebrew/lib -lgsl -lgslcblas -lm && ./demo_shuffle

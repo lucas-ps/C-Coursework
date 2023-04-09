@@ -2,13 +2,6 @@
 #define BEGGAR_H
 #include "shuffle.c"
 
-// Card struct
-typedef struct {
-    int value;
-    struct card *next;
-    struct card *prev;
-} card_t;
-
 /*// Player struct
 typedef struct {
     int id;
@@ -39,6 +32,30 @@ typedef struct {
  */
 int beggar(int Nplayers, int *deck, int talkative);
 
+void give_deck_to_player(int *player, int *deck);
+
+/**
+ * @brief Prints out details of a round if 'talkative' is enabled.
+ * 
+ *
+ * @param players The players decks array.
+ * @param pile The current main pile.
+ * @param turn How many turns have been played so far.
+ * @param output The string to output before printing piles.
+ * @param Nplayers The number of players in the game.
+ * @param current_player The current player.
+ */
+void print_details_of_round(int players[][52], int *pile, int turn, char *output, 
+int Nplayers, int current_player);
+
+/**
+ * @brief Finds the end of a card deck (index of first zero - non card item)
+ * 
+ * @param array The deck array to search.
+ * @return The index of the first zero.
+ */
+int find_end_of_deck(int *array);
+
 /**
  * @brief returns 1 if one player has all the cards and the others have none.
  * 
@@ -46,17 +63,27 @@ int beggar(int Nplayers, int *deck, int talkative);
  * @param num_players The number of players.
  * @return int 0 If the game is not finished, 1 if the game is.
  */
-int finished(int **players, int num_players);
+int finished(int (*players)[52], int num_players);
 
 /**
- * @brief Called to get the reward after a turn, takes in the cards held by a 
- * player and the current main pile of cards. Update the player’s cards and the
- * main pile after a turn and returns a 'reward' for the previous player if they
- * don't lay a penalty card in response to the top card in the main pile.
+ * @brief Adds a card to the pile from the players deck, removes that card from
+ * the player's deck.
  * 
- * @param player Current player's pile.
- * @param pile Main pile.
- * @return int* The reward cards.
+ *
+ * @param player The player's deck.
+ * @param pile The main pile.
+ */
+void add_player_card_to_pile(int *player, int *pile);
+
+/**
+ * @brief Plays a trurn for the current player, takes in the cards held by a 
+ * player and the current main pile of cards. Update the player’s cards and the
+ * main pile after a turn and returns 1 if there is a 'reward' for the previous 
+ * player.
+ * 
+ * @param player The current player's deck.
+ * @param pile The main pile.
+ * @return int Return penalty case, and penalty size. eg. 31 = case 3, penalty 1 card.
  */
 int take_turn(int *player, int *pile);
 
@@ -69,5 +96,13 @@ int take_turn(int *player, int *pile);
  * @return Stats 
  */
 stats_t statistics(int Nplayers, int games);
+
+/**
+ * @brief Generates a deck (array of numbers 2-14, appearing 4 times each). 
+ * Where 11, 12, 13, 14 are Jack, Queen, King and Ace. Uses 'shuffle.c'.
+ * 
+ * @return The generated deck array.
+ */
+int* generate_deck();
 
 #endif
