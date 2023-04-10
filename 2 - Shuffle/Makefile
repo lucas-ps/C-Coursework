@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -g
+CFLAGS = -g -std=c99
 LIBS = 
 
 all: quality demo_shuffle

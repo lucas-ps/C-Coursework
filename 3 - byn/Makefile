@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g
+CFLAGS = -g -std=c99
 LIBS = -lgsl -lgslcblas -lm 
 
 # This was necessary to get gsl working on macOS but may not be necessary for other platforms.
