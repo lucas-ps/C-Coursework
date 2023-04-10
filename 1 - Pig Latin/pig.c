@@ -17,7 +17,7 @@ char *pig(char *word) {
     // Case 2: Word starts with consonant
     else {
         char firstConsonants[3] = "";
-        size_t i;
+        int i;
 
         // Get first consonant letter(s)
         for (i = 0; i < strlen(word) - 1; i++) {
@@ -35,12 +35,12 @@ char *pig(char *word) {
         int len_word = strlen(word);
         int len_con = strlen(firstConsonants);
 
-        for (int i = 0; i < len_word - len_con; i++) {
+        for (i = 0; i < len_word - len_con; i++) {
             word[i] = word[i + len_con];
         }
 
         // Add consonant(s) to end of word + "ay"
-        for (int i = 0; i < len_con; i++) {
+        for (i = 0; i < len_con; i++) {
             word[len_word - len_con + i] = firstConsonants[i];
         }
         strcat(word, "ay");
