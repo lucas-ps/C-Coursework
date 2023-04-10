@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -g -std=c99
+CFLAGS = -g -std=gnu99
 LIBS = 
 
 all: piglatin test_pig
