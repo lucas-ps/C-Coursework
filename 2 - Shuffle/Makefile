@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Wpedantic -g
+CFLAGS = -g
 LIBS = 
 
 all: quality demo_shuffle
