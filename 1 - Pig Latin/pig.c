@@ -6,7 +6,6 @@ char *pig(char *word) {
 
     if (strlen(word) < 3) return word;
     const char *vowels = "aeiouAEIOU";
-    size_t len = strlen(word);
     char firstChar = *word;
 
     // Case 1: Word start wirh vowel
@@ -18,7 +17,7 @@ char *pig(char *word) {
     // Case 2: Word starts with consonant
     else {
         char firstConsonants[3] = "";
-        int i;
+        size_t i;
 
         // Get first consonant letter(s)
         for (i = 0; i < strlen(word) - 1; i++) {

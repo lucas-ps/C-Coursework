@@ -25,20 +25,20 @@ void riffle_once(void *L, int len, int size, void *work) {
     for (int i = 0; i < len; i++) {
         // Check if either 'a' or 'b' refer to an element that is not available.
         if (a >= len/2 && b <= len) {
-            memcpy(work + i * size, L + b * size, size);
+            memcpy((char*)work + i * size, (char*)L + b * size, size);
             b++;
         }
         else if (b >= len && a <= len/2) {
-            memcpy(work + i * size, L + a * size, size);
+            memcpy((char*)work + i * size, (char*)L + a * size, size);
             a++;
         }
         // Randomly add either 'a' or 'b' to 'work'
         else if (rand() % 2 == 0) {
-            memcpy(work + i * size, L + a * size, size);
+            memcpy((char*)work + i * size, (char*)L + a * size, size);
             a++;
         }
         else {
-            memcpy(work + i * size, L + b * size, size);
+            memcpy((char*)work + i * size, (char*)L + b * size, size);
             b++;
         }
     }

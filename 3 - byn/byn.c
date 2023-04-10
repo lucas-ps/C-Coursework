@@ -33,5 +33,3 @@ int main(int argc, char **argv) {
     printf("Average: %.2f\n", game_stats.average);
     return 0;
 }
-
-// gcc -g -I/opt/homebrew/include byn.c -o byn -L/opt/homebrew/lib -lgsl -lgslcblas -lm && ./byn

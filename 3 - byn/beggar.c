@@ -33,7 +33,7 @@ int beggar(int Nplayers, int *deck, int talkative) {
 
     while (!finished(players, Nplayers)) {
         turn++;
-        int next_player = (current_player + 1) % Nplayers;
+        next_player = (current_player + 1) % Nplayers;
         while (players[next_player][0] == 0) {
             next_player = (next_player + 1) % Nplayers;
         }

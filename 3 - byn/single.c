@@ -24,5 +24,3 @@ int main(int argc, char **argv) {
     beggar(players, NULL, 1);
     return 0;
 }
-
-// gcc -g -I/opt/homebrew/include single.c -o single -L/opt/homebrew/lib -lgsl -lgslcblas -lm && ./single 
