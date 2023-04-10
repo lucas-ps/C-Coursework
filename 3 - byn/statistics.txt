@@ -1,0 +1,3 @@
+Shortest: 31
+Longest: 484
+Average: 170.00

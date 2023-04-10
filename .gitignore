@@ -1,24 +1,20 @@
-.vscode/tasks.json
-.vscode/settings.json
-.vscode/launch.json
+.vscode/**
 1 - Pig Latin/piglatin
 1 - Pig Latin/tempCodeRunnerFile.c
 1 - Pig Latin/test_pig
-1 - Pig Latin/piglatin.dSYM/Contents/Info.plist
-1 - Pig Latin/piglatin.dSYM/Contents/Resources/DWARF/piglatin
+1 - Pig Latin/piglatin.dSYM/**
 2 - Shuffle/demo_shuffle
 2 - Shuffle/quality
 2 - Shuffle/tempCodeRunnerFile.c
-2 - Shuffle/riffle.dSYM/Contents/Info.plist
-2 - Shuffle/riffle.dSYM/Contents/Resources/DWARF/riffle
+2 - Shuffle/riffle.dSYM/**
 .vscode/c_cpp_properties.json
-.gitignore
 .DS_Store
 3 - byn/tempCodeRunnerFile.c
-.gitignore
 3 - byn/shuffle
 3 - byn/output/*
 3 - byn/beggar
 3 - byn/demo_shuffle
-3 - byn/beggar.dSYM/Contents/Info.plist
-3 - byn/beggar.dSYM/Contents/Resources/DWARF/beggar
+3 - byn/beggar.dSYM/**
+3 - byn/byn.dSYM/**
+3 - byn/single
+3 - byn/byn

@@ -1,13 +1,5 @@
 #ifndef BEGGAR_H
 #define BEGGAR_H
-#include "shuffle.c"
-
-/*// Player struct
-typedef struct {
-    int id;
-    card *cards;
-    int num_cards;
-} player_t;*/
 
 /**
  * @brief A struct to hold details of shortest, average and longest 
@@ -32,12 +24,18 @@ typedef struct {
  */
 int beggar(int Nplayers, int *deck, int talkative);
 
+/**
+ * @brief Gives the current main pile to a specified player and resets the deck.
+ * 
+ * @param player The player to give the deck to.
+ * @param deck The current main pile.
+ * 
+ */
 void give_deck_to_player(int *player, int *deck);
 
 /**
  * @brief Prints out details of a round if 'talkative' is enabled.
  * 
- *
  * @param players The players decks array.
  * @param pile The current main pile.
  * @param turn How many turns have been played so far.
@@ -89,11 +87,11 @@ int take_turn(int *player, int *pile);
 
 /**
  * @brief uses 'beggar' function to calculate the shortest, average and longest 
- * games with Nplayers. Returns a 'Stats' struct with these details.
+ * games with Nplayers. Returns a 'stats_t' struct with these details.
  * 
  * @param Nplayers Number of players per game.
  * @param games Number of games to play.
- * @return Stats 
+ * @return stats_t 
  */
 stats_t statistics(int Nplayers, int games);
 
