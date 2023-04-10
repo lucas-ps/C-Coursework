@@ -6,10 +6,10 @@ LIBS =
 all: quality demo_shuffle
 
 quality: quality.o riffle.o
-	gcc quality.c -o quality $(LIBS)
+	gcc $(CFLAGS) quality.c -o quality $(LIBS)
 
 demo_shuffle: demo_shuffle.o riffle.o
-	gcc demo_shuffle.c -o demo_shuffle $(LIBS)
+	gcc $(CFLAGS) demo_shuffle.c -o demo_shuffle $(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

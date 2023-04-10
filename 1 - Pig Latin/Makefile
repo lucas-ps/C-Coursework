@@ -6,10 +6,10 @@ LIBS =
 all: piglatin test_pig
 
 piglatin: piglatin.o pig.o
-	gcc piglatin.c -o piglatin $(LIBS)
+	gcc $(CFLAGS) piglatin.c -o piglatin $(LIBS)
 
 test_pig: test_pig.o pig.o
-	gcc test_pig.c -o test_pig $(LIBS)
+	gcc $(CFLAGS) test_pig.c -o test_pig $(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
