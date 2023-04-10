@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "beggar.h"
-#include "shuffle.h"
+#include "shuffle.c"
 
 int beggar(int Nplayers, int *deck, int talkative) {
     int players[Nplayers][52];
@@ -264,9 +264,20 @@ int* generate_deck() {
     return deck;
 }
 
-int main(int argc, char **argv) {    
-    int result = beggar(3, NULL, 1);
-    printf("%d\n", result);
-}
+/*int main(int argc, char **argv) {
+    int players = 3;
+    int trials = 100;
 
-// gcc -I/opt/homebrew/include beggar.c -o beggar -L/opt/homebrew/lib -lgsl -lgslcblas -lm && ./beggar
+    if (argc == 3) {
+        players = atoi(argv[1]);
+        trials = atoi(argv[2]);
+    }
+
+    stats_t game_stats = statistics(players, trials);
+    printf("Shortest: %d\n", game_stats.shortest);
+    printf("Longest: %d\n", game_stats.longest);
+    printf("Average: %.2f\n", game_stats.average);
+    return 0;
+}*/
+
+// gcc -g -I/opt/homebrew/include beggar.c -o beggar -L/opt/homebrew/lib -lgsl -lgslcblas -lm && ./beggar
