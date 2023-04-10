@@ -17,7 +17,7 @@ void riffle_once(void *L, int len, int size, void *work) {
     // Get current time in nanoseconds
     struct timespec ts;
     clock_gettime(CLOCK_REALTIME, &ts);
-    long seed = ts.tv_nsec;
+    unsigned int seed = ts.tv_nsec;
 
     // Set random seed based on the current time in nanoseconds
     srand(seed);
@@ -33,7 +33,7 @@ void riffle_once(void *L, int len, int size, void *work) {
             a++;
         }
         // Randomly add either 'a' or 'b' to 'work'
-        else if (rand() % 2 == 0) {
+        else if (rand_r(&seed) % 2 == 0)  {
             memcpy((char*)work + i * size, (char*)L + a * size, size);
             a++;
         }
