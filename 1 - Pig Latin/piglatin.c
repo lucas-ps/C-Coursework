@@ -16,7 +16,17 @@ int main() {
             break;
         }
 
-        input[strcspn(input, "\n")] = '\0'; 
+        if (strlen(input) >= 50) {
+            printf("Input too long. Please enter a shorter input.\n");
+            while (fgets(input, sizeof(input), stdin)) {
+                if (strlen(input) < 50) {
+                    break;
+                }
+                printf("Input too long. Please enter a shorter input.\n");
+            }
+        }
+
+        input[strcspn(input, "\n")] = '\0';     
 
         // Apply "pig" to each word
         char *token = strtok(input, " ");
